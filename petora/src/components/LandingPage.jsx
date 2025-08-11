@@ -23,6 +23,7 @@ import {
 } from 'lucide-react'
 import './LandingPage.css'
 import VirusField from './VirusField'
+import ModelHero from './ModelHero'
 
 const LandingPage = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -135,7 +136,6 @@ const LandingPage = () => {
                 onMouseLeave={() => setPetoraHover(false)}
               >
                 Petora
-                {/* Virus / particle field overlay */}
                 <VirusField active={petoraHover} mouse={{ ...mousePosition, inside: petoraHover }} />
               </span>
             </h1>
@@ -184,78 +184,9 @@ const LandingPage = () => {
             initial={{ opacity: 0, x: 50, rotateY: 15 }}
             animate={{ opacity: 1, x: 0, rotateY: 0 }}
             transition={{ duration: 1.2, delay: 0.5 }}
-            className="hero-visual"
+            className="hero-visual hero-visual-3d"
           >
-            <div className="model-container">
-              <div className="model-3d">
-                <div className="model-base">
-                  <div className="doctor-avatar">
-                    <div className="avatar-head">
-                      <div className="avatar-face">
-                        <div className="eyes">
-                          <div className="eye left"></div>
-                          <div className="eye right"></div>
-                        </div>
-                        <div className="mouth"></div>
-                      </div>
-                    </div>
-                    <div className="avatar-body">
-                      <div className="stethoscope">
-                            <Stethoscope className="stethoscope-icon" />
-                          </div>
-                    </div>
-                  </div>
-                  
-                  <div className="pet-avatar">
-                    <div className="pet-head">
-                      <div className="pet-ears">
-                        <div className="ear left"></div>
-                        <div className="ear right"></div>
-                      </div>
-                      <div className="pet-face">
-                        <div className="pet-eyes">
-                          <div className="pet-eye left"></div>
-                          <div className="pet-eye right"></div>
-                        </div>
-                        <div className="pet-nose"></div>
-                      </div>
-                    </div>
-                    <div className="pet-body">
-                      <PawPrint className="paw-icon" />
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="floating-elements">
-                  <motion.div 
-                    className="floating-card"
-                    animate={{ y: [-10, 10, -10] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    <Heart className="floating-icon" />
-                    <span>AI Diagnosis</span>
-                  </motion.div>
-                  
-                  <motion.div 
-                    className="floating-card"
-                    animate={{ y: [10, -10, 10] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  >
-                    <Brain className="floating-icon" />
-                    <span>Smart Care</span>
-                  </motion.div>
-                  
-                  <motion.div 
-                    className="floating-card"
-                    animate={{ y: [-10, 10, -10] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                  >
-                    <Zap className="floating-icon" />
-                    <span>Instant Results</span>
-                  </motion.div>
-                </div>
-              </div>
-            </div>
+            <ModelHero />
           </motion.div>
         </div>
         
