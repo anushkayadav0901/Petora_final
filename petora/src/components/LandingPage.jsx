@@ -22,9 +22,11 @@ import {
   CheckCircle
 } from 'lucide-react'
 import './LandingPage.css'
+import VirusField from './VirusField'
 
 const LandingPage = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [petoraHover, setPetoraHover] = useState(false)
   const { scrollY } = useScroll()
   const y = useTransform(scrollY, [0, 1000], [0, 200])
   const opacity = useTransform(scrollY, [0, 300], [1, 0])
@@ -126,7 +128,16 @@ const LandingPage = () => {
             </div>
             
             <h1 className="hero-title">
-              Welcome to <span className="highlight">Petora</span>
+              Welcome to 
+              <span 
+                className="highlight petora-wrapper"
+                onMouseEnter={() => setPetoraHover(true)}
+                onMouseLeave={() => setPetoraHover(false)}
+              >
+                Petora
+                {/* Virus / particle field overlay */}
+                <VirusField active={petoraHover} mouse={{ ...mousePosition, inside: petoraHover }} />
+              </span>
             </h1>
             
             <p className="hero-subtitle">
